@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Usage: box container gpu-id image
+# A docker startup command.
+
+function box() {
+    local gpu=${2:-'0'}
+    local name="$1-$gpu"
+    local user=dev
+    local image=${3:-'gongzhitaao:v0'}
+
+    running=$(docker inspect -f {{.State.Running}} $name 2>/dev/null)
+    if [ "$running" == "true" ]; then
+        docker attach $name
+    else
+        NV_GPU=$gpu nvidia-docker run \
+              -it \
+              --name $name \
+              --rm \
+              --shm-size 2G \
+              --volume /home/zzg0009/workspace:/home/$user/workspace \
+              --volume /mnt/raid/lab/ILSVRC2012_img_train:/home/$user/data/imagenet \
+              --volume /mnt/raid/3d_ax:/home/$user/data/ax3d \
+              --volume /mnt/raid/zzg0009/data:/home/$user/data \
+              --env CONTAINER_NAME=$name \
+              $image bash
+    fi
+}
