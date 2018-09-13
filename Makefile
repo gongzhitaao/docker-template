@@ -1,14 +1,14 @@
 DOCKER = docker
 
 label = 'dummy'
-tag = 'gongzhitaao:v1'
+tag = 'gongzhitaao:v0'
 
 host_user = $(shell whoami)
 host_uid = $(shell id -u ${user})
 host_gid = $(shell id -g ${user})
 docker_user = dev
 
-all : debug
+all : build
 
 build :
 	$(DOCKER) build \

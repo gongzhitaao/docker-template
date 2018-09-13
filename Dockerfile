@@ -31,7 +31,7 @@ RUN apt-get update && apt-get -y install \
     vim \
     wget
 
-# Login as a normal user with sudo privilege, instead of as an admin.
+# Login as a normal user with sudo privilege
 RUN groupadd --gid $docker_gid $docker_user \
     && useradd \
        --comment "" \
@@ -44,7 +44,6 @@ RUN groupadd --gid $docker_gid $docker_user \
     && usermod -aG sudo $docker_user
 
 COPY requirements.txt /tmp/
-# RUN pip3 install --upgrade pip
 
 COPY --chown=dev dotfiles $docker_home/
 

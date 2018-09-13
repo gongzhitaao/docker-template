@@ -104,7 +104,7 @@ BMAG='\033[01;45m' # background magenta
 BCYN='\033[01;46m' # background cyan
 BWHT='\033[01;47m' # background white
 
-PS1="${RS}${FYEL}${BRED}${CONTAINER_NAME}: ${FGRN}\w${RS}\n$ "
+PS1="${RS}${FYEL}${BRED}${CONTAINER_NAME}${RS}: ${FGRN}\w${RS}\n$ "
 
 function gpg2me() {
     gpg2 --output "$1.gpg" --encrypt --recipient zhitaao.gong@gmail.com "$1"
