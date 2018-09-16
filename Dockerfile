@@ -1,8 +1,8 @@
 FROM nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
 
 ARG docker_user=dev
-ARG docker_uid
-ARG docker_gid
+ARG docker_uid=1000
+ARG docker_gid=1000
 
 ARG docker_home=/home/$docker_user
 ARG DEBIAN_FRONTEND=noninteractive
