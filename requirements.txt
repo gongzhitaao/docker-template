@@ -1,3 +1,4 @@
+diff-highlight
 h5py
 imageio
 matplotlib
