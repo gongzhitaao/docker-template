@@ -3,7 +3,6 @@ h5py
 imageio
 matplotlib
 multiprocessing_logging
-nltk
 numpy
 pandas
 scikit-image

@@ -1,7 +1,7 @@
 DOCKER = docker
 
 label = 'dummy'
-tag = 'gongzhitaao:v0'
+tag = 'gongzhitaao:v1'
 
 host_user = $(shell whoami)
 host_uid = $(shell id -u ${user})

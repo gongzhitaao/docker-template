@@ -106,13 +106,10 @@ BWHT='\033[01;47m' # background white
 
 PS1="${RS}${FYEL}${BRED}${CONTAINER_NAME}${RS}: ${FGRN}\w${RS}\n$ "
 
-function gpg2me() {
-    gpg2 --output "$1.gpg" --encrypt --recipient zhitaao.gong@gmail.com "$1"
-}
-
 [ -f ~/.fzf.bash ] && . ~/.fzf.bash
 
-function initenv() {
-    pip3 install --user -r /tmp/requirements.txt
-    python3 -m nltk.downloader -d $HOME/.nltk_data all
+function initconda() {
+    while read pkg; do
+        conda install --yes $pkg;
+    done < /tmp/requirements.txt
 }
